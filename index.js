@@ -5,10 +5,14 @@ const connection=require('./config/connect-and-createDb')
 //createDb()
 const db = require('./models/index')
 const userRoute=require('./routes/userRoute')
-const movieRoute = require('./routes/movieRoute')
+const movieRoute=require('./routes/movieRoute')
+const cors = require('cors')
 
 require('dotenv').config()
 app.use(express.json())
+app.use(cors({
+  origin:'*'
+}))
 
 app.use('/api/users', userRoute)
 app.use('/api/movies',movieRoute)
