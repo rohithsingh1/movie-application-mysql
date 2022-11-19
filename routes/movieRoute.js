@@ -61,8 +61,8 @@ router.post('/show-movies', authMiddleware, async (req, res) => {
         let UserId=req.body.UserId
         let resultdata=await db.sequelize.query(`
             select m.MovieId,m.UserId, m.MovieName,m.Rating,m.Genre,m.ReleaseDate,c.CastName,c.CastId
-            from movies m join moviecastjunctions mcj on m.MovieId = mcj.MovieId
-            join casts c on mcj.CastId = c.CastId where m.UserId = ${UserId};`,
+            from Movies m join MovieCastJunctions mcj on m.MovieId = mcj.MovieId
+            join Casts c on mcj.CastId = c.CastId where m.UserId = ${UserId};`,
             {type: QueryTypes.SELECT});
         console.log('resultData : ', resultdata)
         let temp
@@ -88,7 +88,7 @@ router.post('/show-movies', authMiddleware, async (req, res) => {
     } catch (error) {
         console.log('err :',error)
         res.send({
-            message: err,
+            message: error,
             success: false,
             data: null,
             token : null

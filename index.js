@@ -1,8 +1,8 @@
 const express=require('express')
 const app=express()
 const connection=require('./config/connect-and-createDb')
-const createDb=connection.connectDB
-createDb()
+//const createDb=connection.connectDB
+//createDb()
 const db = require('./models/index')
 const userRoute=require('./routes/userRoute')
 const movieRoute = require('./routes/movieRoute')

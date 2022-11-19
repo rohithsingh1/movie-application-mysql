@@ -2,11 +2,12 @@ const {Sequelize}=require("sequelize");
 const path = require('path');
 const db = {};
 const sequelize = new Sequelize(
-   'movies',
-   'root',
-   'Geethasingh@10',
+   'sql12578821',//database name
+   'sql12578821',//username default root
+   'l7eg32KrvV',//password
     {
-      host: 'localhost',
+      host: 'sql12.freemysqlhosting.net',//default localhost
+      port : 3306,
       dialect: 'mysql'
     }
   );

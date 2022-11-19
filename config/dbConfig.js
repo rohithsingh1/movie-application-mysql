@@ -1,13 +1,13 @@
 const mysql=require('mysql')
 const mysqlConn=mysql.createConnection({
     //Host: Specifies the host that runs the database
-    host: "localhost",
+    host: "sql12.freemysqlhosting.net",// default localhost
     //User: Sets the user’s name
-    user: "root",
+    user: "sql12578821",// default root
     //Password: Sets up a password
-    password: "Geethasingh@10",
+    password: "l7eg32KrvV",
     //Database: Names the database
-    database:"movies"
+    database:"sql12578821"
 })
 
 module.exports = mysqlConn
