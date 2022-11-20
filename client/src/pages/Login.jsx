@@ -9,6 +9,7 @@ import Navbar from "../components/Navbar";
 
 function Login() {
   const navigate = useNavigate();
+  console.log(`${process.env.NODE_ENV}`);
   const [user, setUser] = useState({
     Email: "",
     Password: "",
@@ -18,7 +19,10 @@ function Login() {
     e.preventDefault();
     try {
       dispatch(ShowLoading());
-      const response = await axios.post("/api/users/login", user);
+      const response = await axios.post(
+        `https://movie-application-mysql.onrender.com/api/users/login`,
+        user
+      );
       dispatch(HideLoading());
       if (response.data.success) {
         toast.success(response.data.message);

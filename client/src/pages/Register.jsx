@@ -23,7 +23,10 @@ function Register() {
         toast.error("Passwords did not match!!!");
       } else {
         dispatch(ShowLoading());
-        const response = await axios.post("/api/users/register", user);
+        const response = await axios.post(
+          `https://movie-application-mysql.onrender.com/api/users/register`,
+          user
+        );
         dispatch(HideLoading());
         if (response.data.success) {
           toast.success(response.data.message);

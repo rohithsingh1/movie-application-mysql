@@ -17,7 +17,7 @@ function Home() {
     try {
       //dispatch(ShowLoading());
       const response = await axios.post(
-        "/api/movies/show-movies",
+        `https://movie-application-mysql.onrender.com/api/movies/show-movies`,
         {},
         {
           headers: {
@@ -44,11 +44,15 @@ function Home() {
         MovieName,
       };
       //dispatch(ShowLoading());
-      const response = await axios.post("api/movies/delete-movie", obj, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await axios.post(
+        `https://movie-application-mysql.onrender.com/api/movies/delete-movie`,
+        obj,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       //dispatch(HideLoading());
       if (response.data.success) {
         toast.success(response.data.message);
@@ -76,7 +80,7 @@ function Home() {
                   <input
                     className="form-control mr-sm-2"
                     type="search"
-                    placeholder="Search Student"
+                    placeholder="Search Movies"
                     aria-label="Search"
                   />
                 </form>
